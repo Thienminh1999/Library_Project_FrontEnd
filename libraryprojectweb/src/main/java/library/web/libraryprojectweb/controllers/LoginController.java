@@ -28,7 +28,6 @@ public class LoginController {
       return "homepage";
     }
     return "error";
-
   }
 
   @GetMapping(value = "/")
