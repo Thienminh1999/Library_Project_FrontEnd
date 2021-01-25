@@ -28,7 +28,6 @@ public class LoginController {
       return "homepage";
     }
     return "error";
-
   }
 
   @GetMapping(value = "/")
@@ -36,5 +35,9 @@ public class LoginController {
     return "loginpage";
   }
 
+
+  //this is changes
+  //xyz
+  //test merge
 }
 
