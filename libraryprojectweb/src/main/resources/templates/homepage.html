@@ -23,29 +23,11 @@
 </head>
 
 <body>
-    <div th:replace="sidebar :: side-bar">
-
+    <div th:replace="sidebar :: navbar">
     </div>
 
     <div class="main-content">
-        <header>
-            <h2>
-                <span class="fas fa-bars"></span>
-                Dashboard
-            </h2>
-
-            <div class="search-wrapper">
-                <span class="fas fa-search"></span>
-                <input type="search" placeholder="Search here" />
-            </div>
-
-            <div class="user-wrapper">
-                <img src="img/avatar.svg" width="30px" height="30px" alt="">
-                <div>
-                    <h4>Admin</h4>
-                </div>
-            </div>
-        </header>
+        <div th:replace="header :: header"></div>
 
         <main>
             <div class="cards">
@@ -225,34 +207,9 @@
                         </div>
                     </div>
         </main>
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row text-muted">
-                    <div class="col-6 text-left">
-                        <p class="mb-0">
-                            <a href="index.html" class="text-muted"><strong>Book Managemet System</strong></a>
-                            &copy
-                        </p>
-                    </div>
-                    <div class="col-6 text-right">
-                        <ul class="list-inline">
-                            <li class="footer-item">
-                                <a class="text-muted" href="#">Support</a>
-                            </li>
-                            <li class="footer-item">
-                                <a class="text-muted" href="#">Help Center</a>
-                            </li>
-                            <li class="footer-item">
-                                <a class="text-muted" href="#">Privacy</a>
-                            </li>
-                            <li class="footer-item">
-                                <a class="text-muted" href="#">Terms</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        
+        <div th:replace="footer :: footer"></div>
+        <script src="main.js"></script>
     </div>
 </body>
 
