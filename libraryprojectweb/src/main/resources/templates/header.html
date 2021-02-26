@@ -30,10 +30,12 @@
   </head>
 
   <body>
+    <input type="checkbox" id="nav-toggle" />
     <header th:fragment="header">
       <h2>
-        <span class="fas fa-bars"></span>
-        Dashboard
+        <label for="nav-toggle">
+          <span class="fas fa-bars"></span>
+        </label>
       </h2>
 
       <div class="search-wrapper">
