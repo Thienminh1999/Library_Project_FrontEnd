@@ -7,7 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
-import library.web.libraryprojectweb.entities.Account;
+
+import library.web.libraryprojectweb.json.Account;
 
 @Controller
 public class LoginController {
