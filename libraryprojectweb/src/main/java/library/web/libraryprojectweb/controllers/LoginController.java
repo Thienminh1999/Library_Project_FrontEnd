@@ -11,9 +11,7 @@ import library.web.libraryprojectweb.entities.Account;
 
 @Controller
 public class LoginController {
-    final String CHECK_LOGIN_URL = "http://localhost:8080/api/checkLogin";
-
-
+  final String CHECK_LOGIN_URL = "http://localhost:8080/api/checkLogin";
   @RequestMapping(value = "/login")
   public String getLogin(HttpServletRequest request) {
     HttpHeaders headers = new HttpHeaders();
@@ -22,7 +20,7 @@ public class LoginController {
     String username = (String)request.getParameter("username");
     String password = (String)request.getParameter("password");
     Account newAccount = new Account(username, password);
-    HttpEntity<String> entity =  new HttpEntity<String>(newAccount.toJsonString(), headers);
+    HttpEntity<String> entity = new HttpEntity<String>(newAccount.toJsonString(), headers);
     Account result = restTemplate.postForObject(CHECK_LOGIN_URL, entity, Account.class);
     if (result != null) {
       return "homepage";
@@ -35,7 +33,7 @@ public class LoginController {
     return "loginpage";
   }
 
-
+  
   //this is changes
   //xyz
   //test merge
