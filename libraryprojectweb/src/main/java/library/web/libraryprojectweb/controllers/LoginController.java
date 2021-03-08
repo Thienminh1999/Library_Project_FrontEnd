@@ -1,4 +1,5 @@
 package library.web.libraryprojectweb.controllers;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -12,13 +13,14 @@ import library.web.libraryprojectweb.entities.Account;
 @Controller
 public class LoginController {
   final String CHECK_LOGIN_URL = "http://localhost:8080/api/checkLogin";
+
   @RequestMapping(value = "/login")
   public String getLogin(HttpServletRequest request) {
     HttpHeaders headers = new HttpHeaders();
     headers.setContentType(MediaType.APPLICATION_JSON);
     RestTemplate restTemplate = new RestTemplate();
-    String username = (String)request.getParameter("username");
-    String password = (String)request.getParameter("password");
+    String username = (String) request.getParameter("username");
+    String password = (String) request.getParameter("password");
     Account newAccount = new Account(username, password);
     HttpEntity<String> entity = new HttpEntity<String>(newAccount.toJsonString(), headers);
     Account result = restTemplate.postForObject(CHECK_LOGIN_URL, entity, Account.class);
@@ -37,5 +39,7 @@ public class LoginController {
   //this is changes
   //xyz
   //test merge
+  // this is changes
+  // xyz
+  // test merge
 }
-

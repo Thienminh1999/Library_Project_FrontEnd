@@ -152,6 +152,7 @@ form h2 {
   height: 100%;
   background: #e8c4b7;
   z-index: 100;
+  transition: width 300ms;
 }
 
 .sidebar-brand {
@@ -176,11 +177,16 @@ form h2 {
 }
 
 .sidebar-menu a {
+  position: relative;
   display: block;
   color: #333;
   font-size: 1.1rem;
   text-decoration: none;
   padding-left: 1rem;
+}
+
+.sidebar-menu ul .book-show.show {
+  display: block;
 }
 
 .sidebar-menu a.active {
@@ -195,7 +201,73 @@ form h2 {
   padding-right: 1rem;
 }
 
+.sidebar-menu ul ul {
+  padding-top: 2rem;
+  position: static;
+  display: none;
+}
+
+.sidebar-menu ul ul li a {
+  position: relative;
+  text-decoration: none;
+  font-size: 18px;
+  padding-left: 40px;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-menu ul ul li a span {
+  padding-right: 1rem;
+}
+
+.sidebar-menu ul li a i {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: transform 0.4s;
+}
+
+.sidebar-menu ul li a i.rotate {
+  transform: translateY(-50%) rotate(-180deg);
+}
+
+#nav-toggle:checked + .sidebar {
+  width: 100px;
+}
+
+/* #nav-toggle:checked + .sidebar li {
+  padding-left: 1rem;
+}
+
+#nav-toggle:checked + .sidebar li a {
+  padding-left: 0rem;
+} */
+
+#nav-toggle:checked + .sidebar li a span {
+  padding-right: 1rem;
+}
+
+#nav-toggle:checked + .sidebar .sidebar-brand h2 span:last-child,
+#nav-toggle:checked + .sidebar li a span:last-child,
+#nav-toggle:checked + .sidebar .sidebar-menu .book-show {
+  display: none;
+}
+
+#nav-toggle:checked ~ .main-content {
+  margin-left: 100px;
+}
+
+#nav-toggle:checked ~ .main-content header {
+  width: calc(100% - 100px);
+  left: 100px;
+}
+
 .main-content {
+  transition: margin-left 300ms;
   margin-left: 345px;
 }
 
@@ -209,6 +281,11 @@ header {
   top: 0;
   z-index: 100;
   background: #fff;
+  transition: left 300ms;
+}
+
+#nav-toggle {
+  display: none;
 }
 
 header h2 {
@@ -453,7 +530,7 @@ table.table tr th:first-child {
   width: 60px;
 }
 table.table tr th:last-child {
-  width: 100px;
+  width: 150px;
 }
 table.table-striped tbody tr:nth-of-type(odd) {
   background-color: #fcfcfc;
@@ -597,3 +674,73 @@ table.table .avatar {
     margin-right: 6px;
 }
 
+/*-------------------------------*/
+
+.form-group {
+  margin-left: 3rem;
+}
+
+.form-group label {
+  display: inline-block;
+  min-width: 245px;
+}
+
+.info-detail {
+  display: inline-block;
+  margin-left: 5rem;
+}
+
+/*-------------------------------*/
+
+.add-group {
+  margin-left: 3rem;
+  margin-top: 1.5rem;
+}
+
+.add-group label {
+  display: inline-block;
+  min-width: 245px;
+}
+
+.add-info-book {
+  width: 40%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.add-info-book:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.mul-select {
+  width: 40%;
+  margin: 0 8px;
+}
+
+.mul-select:focus {
+  border-color: #fff;
+  box-shadow: 0 0 8px 0 #fff;
+}
+
+.add-book-btn {
+  margin-top: 1.5rem;
+  margin-left: 30rem;
+}
+
+.add-book-btn a {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #111;
+  text-transform: uppercase;
+  color: #111;
+  text-decoration: none;
+}
+
+/*-------------------------------*/
