@@ -601,8 +601,7 @@ table.table .avatar {
   min-width: 245px;
 }
 
-.add-group input,
-textarea {
+.add-info-book {
   width: 40%;
   border: 2px solid #aaa;
   border-radius: 4px;
@@ -613,9 +612,19 @@ textarea {
   transition: 0.3s;
 }
 
-.add-group input:focus {
+.add-info-book:focus {
   border-color: dodgerBlue;
   box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.mul-select {
+  width: 40%;
+  margin: 0 8px;
+}
+
+.mul-select:focus {
+  border-color: #fff;
+  box-shadow: 0 0 8px 0 #fff;
 }
 
 .add-book-btn {
@@ -632,3 +641,5 @@ textarea {
   color: #111;
   text-decoration: none;
 }
+
+/*-------------------------------*/

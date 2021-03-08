@@ -15,3 +15,11 @@ btn.addEventListener('click', function() {
     submenu.classList.toggle('show')
     arrow.classList.toggle('rotate')
 });
+
+$(function () {
+    $(".mul-select").select2({
+      placeholder: "select country",
+      tags: true,
+      tokenSeparators: ["/", ",", ";", " "],
+    });
+  });
