@@ -15,10 +15,12 @@ public class BookInfo {
     private Date modifiedDate;
     private String createdBy;
     private String modifiedBy;
+    private String BookImg;
+    private String CategoryID;
 
     public BookInfo(String bookID, String bookName, String publisher, String publishDate, String quantity,
             String description, String bookPosition, Date createdDate, Date modifiedDate, String createdBy,
-            String modifiedBy) {
+            String modifiedBy, String BookImg, String CategoryID) {
         this.bookID = bookID;
         this.bookName = bookName;
         this.publisher = publisher;
@@ -30,10 +32,12 @@ public class BookInfo {
         this.modifiedDate = modifiedDate;
         this.createdBy = createdBy;
         this.modifiedBy = modifiedBy;
+        this.modifiedBy = BookImg;
+        this.modifiedBy = CategoryID;
     }
 
     public BookInfo(String bookID, String bookName, String publisher, String publishDate, String quantity,
-            String description, String bookPosition) {
+            String description, String bookPosition, String bookImg, String categoryID) {
         this.bookID = bookID;
         this.bookName = bookName;
         this.publisher = publisher;
@@ -41,6 +45,8 @@ public class BookInfo {
         this.quantity = quantity;
         this.description = description;
         this.bookPosition = bookPosition;
+        this.BookImg = bookImg;
+        this.CategoryID = categoryID;
     }
 
     
@@ -134,5 +140,21 @@ public class BookInfo {
     }
 
     public BookInfo() {
+    }
+    
+    public String getBookImg() {
+        return BookImg;
+    }
+
+    public void setBookImg(String bookImg) {
+        BookImg = bookImg;
+    }
+
+    public String getCategoryID() {
+        return CategoryID;
+    }
+
+    public void setCategoryID(String categoryID) {
+        CategoryID = categoryID;
     }
 }

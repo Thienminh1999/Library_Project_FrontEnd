@@ -32,45 +32,55 @@
   <body>
     <div th:fragment="navbar" class="sidebar">
       <div class="sidebar-brand">
-        <h2>BOOK MANAGEMENT</h2>
+        <h2><span>BOOK MANAGEMENT</span></h2>
       </div>
 
       <div class="sidebar-menu">
         <ul>
           <li>
-            <a href="#" class="nav_link active">
+            <a href="#" class="nav__link active">
               <span class="fas fa-chart-pie"></span>
               <span>Dashboard</span>
             </a>
           </li>
           <li>
-            <a th:href="@{/books}" class="nav_link">
+            <a th:href="@{/books}" class="nav__link book-btn">
               <span class="fas fa-book"></span>
-              <span>Book</span>
+              <span>Book <i class="fas fa-caret-down first"></i></span>
             </a>
+            <ul class="book-show">
+              <li>
+                <a href="#"><span class="fas fa-plus-circle"></span>Add Book</a>
+              </li>
+              <li>
+                <a href="#"><span class="fas fa-list-ul"></span>View Book</a>
+              </li>
+            </ul>
           </li>
           <li>
-            <a href="#" class="nav_link">
+            <a href="#" class="nav__link">
               <span class="fas fa-book-reader"></span>
               <span>Rentbook</span>
             </a>
           </li>
           <li>
-            <a href="#" class="nav_link">
+            <a href="#" class="nav__link">
               <span class="far fa-comments"></span>
               <span>Review</span>
             </a>
           </li>
           <li>
-            <a th:href="@{/users}" class="nav_link">
+            <a th:href="@{/users}" class="nav__link">
               <span class="fas fa-users"></span>
               <span>Member</span>
             </a>
           </li>
         </ul>
       </div>
-    </div>
 
-    <script src="main.js"></script>
+      <th:block layout:fragment="script">
+        <script type="text/javascript" src="js/main.js"></script>
+      </th:block>
+    </div>
   </body>
 </html>

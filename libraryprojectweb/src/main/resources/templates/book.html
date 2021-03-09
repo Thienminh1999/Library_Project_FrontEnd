@@ -58,8 +58,8 @@
 							</thead>
 							<tbody>									
 									<tr th:each="book : ${listBook}">
-										<td th:text="${book.getBook().getBookID()}" hidden="true"></td>
-										<td th:text="${book.getBook().getBookName()}"></td>
+										<td th:text="${book.book.bookID}"></td>
+										<td th:text="${book.book.bookName}"></td>
 										<td></td>
 										<td></td>
 										<td></td>
