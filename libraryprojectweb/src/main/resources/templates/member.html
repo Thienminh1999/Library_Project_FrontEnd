@@ -38,7 +38,7 @@
 						<div class="table-title">
 							<div class="row">
 								<div class="col-sm-6">
-									<h2>Manage Employees</h2>
+									<h2>User List</h2>
 								</div>
 							</div>
 						</div>
@@ -53,15 +53,17 @@
 								</tr>
 							</thead>
 							<tbody th:each="user : ${listUser}">
-
-								<tr>
-									<td><span th:text="${user.userID}"></span></td>
-									<td><span>demo</span></td>
-									<td></td>
-									<td></td>
+								<tr>									
+									<td><span th:text="${user.fullName}"></span></td>
+									<td><span th:text="${user.email}"></span></td>
+									<td><span th:text="${user.address}"></span></td>
+									<td><span th:text="${user.phoneNumber}"></span></td>
 									<td><a href="#" class="view" title="View"
 										data-toggle="tooltip"><i
-											class="material-icons">&#xE417;</i></a></td>
+											class="material-icons">&#xE417;</i></a>
+									
+									</td>
+									
 								</tr>
 							</tbody>
 						</table>

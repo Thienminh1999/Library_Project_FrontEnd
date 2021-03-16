@@ -1,16 +1,33 @@
 package library.web.libraryprojectweb.entities;
 
+import java.sql.Date;
+
+
 public class ReviewInfo {
-	private String reviewID;
+   
+    private String reviewID;
     private String userID;
     private String bookID;
     private String content;
+    private Date createWhen;
+    private String modifiedBy;
 
-    public ReviewInfo(String reviewID, String userID, String bookID, String content) {
+    public ReviewInfo(String reviewID, String userID, String bookID, String content, Date createWhen, String modifiedBy) {
         this.reviewID = reviewID;
         this.userID = userID;
         this.bookID = bookID;
         this.content = content;
+        this.createWhen = createWhen;
+        this.modifiedBy = modifiedBy;
+    }
+
+    public ReviewInfo(String reviewID, String userID, String bookID, String content, Date createWhen) {
+        this.reviewID = reviewID;
+        this.userID = userID;
+        this.bookID = bookID;
+        this.content = content;
+        this.createWhen = createWhen;
+       
     }
 
     public String getReviewID() {
@@ -46,5 +63,21 @@ public class ReviewInfo {
     }
 
     public ReviewInfo() {
+    }
+
+    public Date getCreateWhen() {
+        return createWhen;
+    }
+
+    public void setCreateWhen(Date createWhen) {
+        this.createWhen = createWhen;
+    }
+
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
     }
 }

@@ -16,21 +16,34 @@ public class User {
     private String modifiedBy;
     private String enabled;
     private String maxRentNumber;
+    private String email;
 
-    public User(String userID, String userName, String password, String fullName, String phoneNumber, String address,
-    String roleID) {
+    public User(String userID, String username, String password, String fullName, String phoneNumber, String address,
+            String roleID) {
         this.userID = userID;
-        this.userName = userName;
         this.password = password;
         this.fullName = fullName;
+        this.userName = username;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.roleID = roleID;
     }
 
+    public User(String userID, String fullName, String phoneNumber, String address, String roleID, String email,
+            Date createDate, String enabled) {
+        this.userID = userID;
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.roleID = roleID;
+        this.email = email;
+        this.createDate = createDate;
+        this.enabled = enabled;
+    }
+
     public User(String userID, String userName, String password, String fullName, String phoneNumber, String address,
             String roleID, Date createDate, String createBy, Date modifiedDate, String modifiedBy, String enabled,
-            String maxRentNumber) {
+            String maxRentNumber, String email) {
         this.userID = userID;
         this.userName = userName;
         this.password = password;
@@ -44,6 +57,7 @@ public class User {
         this.modifiedBy = modifiedBy;
         this.enabled = enabled;
         this.maxRentNumber = maxRentNumber;
+        this.email = email;
     }
 
     public String getUserID() {
@@ -135,5 +149,29 @@ public class User {
     }
 
     public User() {
+    }
+
+    public String getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(String enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getMaxRentNumber() {
+        return maxRentNumber;
+    }
+
+    public void setMaxRentNumber(String maxRentNumber) {
+        this.maxRentNumber = maxRentNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

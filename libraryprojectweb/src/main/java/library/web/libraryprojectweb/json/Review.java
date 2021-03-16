@@ -1,75 +1,108 @@
 package library.web.libraryprojectweb.json;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.sql.Date;
+
+import library.web.libraryprojectweb.entities.ReviewInfo;
+
 
 public class Review {
 	private String reviewID;
     private String userID;
     private String bookID;
     private String content;
-    
-	public Review() {
-		
-	}
-	
-	public Review(String reviewID, String userID, String bookID, String content) {
-		this.reviewID = reviewID;
-		this.userID = userID;
-		this.bookID = bookID;
-		this.content = content;
-	}
-    
-    public Review convertToEntity() {
-    	Review review = new Review();
-    	review.setReviewID(reviewID);
-    	review.setUserID(userID);
-    	review.setBookID(bookID);
-    	review.setContent(content);
-    	return review;
+    private Date createWhen;
+    private String modifiedBy;
+    private String fullNameUser;
+    private String bookName;
+
+    public Review() {
     }
 
-	public String getReviewID() {
-		return reviewID;
-	}
+    public Review(String reviewID, String userID, String bookID, String content, Date createWhen, String modifiedBy,
+            String fullNameUser, String bookName) {
+        this.reviewID = reviewID;
+        this.userID = userID;
+        this.bookID = bookID;
+        this.content = content;
+        this.createWhen = createWhen;
+        this.modifiedBy = modifiedBy;
+        this.fullNameUser = fullNameUser;
+        this.bookName = bookName;
+    }
 
-	public void setReviewID(String reviewID) {
-		this.reviewID = reviewID;
-	}
+    public Review(ReviewInfo reviewinfo, String Fullname, String BookName){
+        this.reviewID = reviewinfo.getReviewID();
+        this.userID = reviewinfo.getUserID();
+        this.bookID = reviewinfo.getBookID();
+        this.content = reviewinfo.getContent();
+        this.createWhen = reviewinfo.getCreateWhen();
+        this.modifiedBy = reviewinfo.getModifiedBy();
+        this.fullNameUser = Fullname;
+        this.bookName = BookName;
+    }
 
-	public String getUserID() {
-		return userID;
-	}
+    public String getReviewID() {
+        return reviewID;
+    }
 
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
+    public void setReviewID(String reviewID) {
+        this.reviewID = reviewID;
+    }
 
-	public String getBookID() {
-		return bookID;
-	}
+    public String getUserID() {
+        return userID;
+    }
 
-	public void setBookID(String bookID) {
-		this.bookID = bookID;
-	}
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public String getBookID() {
+        return bookID;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
-    
-	public String toJsonString() {
-		String jsonString = "";
-		try {
-			ObjectMapper mapper = new ObjectMapper();
-			jsonString = mapper.writeValueAsString(convertToEntity());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return jsonString;
-	}
-	
+    public void setBookID(String bookID) {
+        this.bookID = bookID;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Date getCreateWhen() {
+        return createWhen;
+    }
+
+    public void setCreateWhen(Date createWhen) {
+        this.createWhen = createWhen;
+    }
+
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public String getFullNameUser() {
+        return fullNameUser;
+    }
+
+    public void setFullNameUser(String fullNameUser) {
+        this.fullNameUser = fullNameUser;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
 
 }

@@ -48,6 +48,22 @@ public class LoginController {
 
 	}
 
+	@RequestMapping(value = "/homes")
+	public String getDashBoard( Model model) {
+		RestTemplate restTemplate = new RestTemplate();		
+		
+			User[] listRecentUser = restTemplate.getForObject(USER_RECENT, User[].class);
+			ReviewInfo[] listReviewRecent = restTemplate.getForObject(REVIEW_RECENT, ReviewInfo[].class);
+			DashboardInfo dash = restTemplate.getForObject(DASH_INFO, DashboardInfo.class);			
+			model.addAttribute("dash", dash);
+			model.addAttribute("listRecentUser", listRecentUser);
+			model.addAttribute("listReviewRecent", listReviewRecent);
+			//System.out.print("\n " + listRecentUser[0].getFullName());
+			return "homepage";
+
+
+	}
+	
 	@GetMapping(value = "/")
 	public String welcomepage() {
 		return "loginpage";
