@@ -700,6 +700,7 @@ table.table .avatar {
 
   height: 40px;
   width: 340px;
+  margin-left: 5rem;
 }
 
 /*-------------------------------*/
@@ -714,7 +715,9 @@ table.table .avatar {
   min-width: 245px;
 }
 
-.add-info-book {
+.add-info-book,
+.add-group input,
+textarea {
   width: 40%;
   border: 2px solid #aaa;
   border-radius: 4px;
@@ -725,7 +728,8 @@ table.table .avatar {
   transition: 0.3s;
 }
 
-.add-info-book:focus {
+.add-info-book:focus ,
+.add-group input:focus {
   border-color: dodgerBlue;
   box-shadow: 0 0 8px 0 dodgerBlue;
 }
@@ -745,7 +749,8 @@ table.table .avatar {
   margin-left: 30rem;
 }
 
-.add-book-btn a, .add-book-btn button {
+.add-book-btn a, .add-book-btn button ,
+.add-book-btn a {
   position: relative;
   display: inline-block;
   padding: 15px 30px;

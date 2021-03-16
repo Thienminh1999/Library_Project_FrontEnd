@@ -3,13 +3,9 @@ package library.web.libraryprojectweb.entities;
 import java.sql.Date;
 
 public class BookInfo {
-   
     private String bookID;
-   
     private String bookName;
- 
     private String publisher;
-    
     private String publishDate;
     private String quantity;
     private String description;

@@ -1,4 +1,4 @@
-package library.web.libraryprojectweb.entities;
+package library.web.libraryprojectweb.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

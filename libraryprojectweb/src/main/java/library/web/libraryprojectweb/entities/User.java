@@ -2,13 +2,8 @@ package library.web.libraryprojectweb.entities;
 
 import java.sql.Date;
 
-
-
-
 public class User {
-  
-    private String userID;
-   
+	private String userID;
     private String userName;
     private String password;
     private String fullName;
@@ -179,5 +174,4 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }
