@@ -76,6 +76,12 @@
             </a>
           </li>
           <li>
+            <a th:href="@{/toUserRentDetail}" class="nav__link">
+              <span class="fas fa-history"></span>
+              <span>Rent History</span>
+            </a>
+          </li>
+          <li>
             <form th:action="@{/logout}" method="post">
 				<input id="logout" type="submit" value="Logout"/>
 			</form>

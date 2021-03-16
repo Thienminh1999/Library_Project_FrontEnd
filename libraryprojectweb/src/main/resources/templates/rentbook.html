@@ -1,109 +1,111 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>Member Managemet</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/all.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css" />
-  </head>
 
-  <body>
-    <div th:replace="sidebar :: navbar"></div>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Member Managemet</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css" />
+</head>
 
-    <div class="main-content">
-      <div th:replace="header :: header"></div>
+<body>
+  <div th:replace="sidebar :: navbar"></div>
 
-      <main>
-        <div class="container-xl">
-          <div class="table-responsive">
-            <div class="table-wrapper">
-              <div class="table-title">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <h2>Manage Rentbook</h2>
+  <div class="main-content">
+    <div th:replace="header :: header"></div>
+
+    <main>
+      <div class="container-xl">
+        <div class="table-responsive">
+          <form th:action="@{/searchRentDetail}" class="width-100">
+            <div class="input-group mb-3">
+
+              <span class="input-group-text">Enter email</span>
+              <input type="text" class="form-control" placeholder="email.@abc.com" name="txtSearchvalueRent">
+              <button type="submit" hidden></button>
+
+            </div>
+          </form>
+          <div class="table-wrapper" th:if="${listRent} != null">
+            <div class="table-title">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h2>History Rentbook</h2>
+                </div>
+              </div>
+            </div>
+            <div class="rentDetail-user-card">
+              <div class="title-bar">
+                <h3>User Info</h3>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Full Name</span>
+                <span class="form-control" th:text="${user.getFullName()}"></span>
+                <span class="input-group-text">User ID</span>
+                <span class="form-control" th:text="${user.getUserID()}"></span>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Email</span>
+                <span class="form-control" th:text="${user.getEmail()}"></span>
+                <span class="input-group-text">Phone Number</span>
+                <span class="form-control" th:text="${user.getPhoneNumber()}"></span>
+              </div>
+
+            </div>
+            <div class="title-bar">
+              <h3>Rent Detail Info</h3>
+            </div>
+            <div th:each="rentDetail : ${listRent}" class="rent-book-card-detail spacing-card">
+              <div class="rentDetail-card padding-right-20 mg-top-20">
+                <div class="input-group mb-3">
+                  <span class="input-group-text">Rent Date</span>
+                  <span class="form-control" th:text=${rentDetail.getRent().getRentDate()}></span>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text">Return Date</span>
+                  <span class="form-control" th:text=${rentDetail.getRent().getReturnDate()}></span>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text">Status</span>
+                  <span class="form-control" th:text=${rentDetail.getRent().getStatusID()}></span>
+                </div>
+              </div>
+              <div class="rentDetail-book-card padding-left-20 my-border-left ">
+                <div th:each="book : ${rentDetail.getListBook()}" class="rentDetail-bookinfo">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Book ID</span>
+                    <span class="form-control" th:text="${book.getBookID()}"></span>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Book Name</span>
+                    <span class="form-control" th:text="${book.getBookName()}"></span>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Book Position</span>
+                    <span class="form-control" th:text="${book.getBookPosition()}"></span>
                   </div>
                 </div>
               </div>
-              <table class="table table-striped table-hover">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Book</th>
-                    <th>RentDate</th>
-                    <th>ReturnDate</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Thomas Hardy</td>
-                    <td>thomashardy@mail.com</td>
-                    <td>89 Chiaroscuro Rd, Portland, USA</td>
-                    <td>(171) 555-2222</td>
-                    <td>Returned</td>
-                  </tr>
-                  <tr>
-                    <td>Dominique Perrier</td>
-                    <td>dominiqueperrier@mail.com</td>
-                    <td>Obere Str. 57, Berlin, Germany</td>
-                    <td>(313) 555-5735</td>
-                    <td>Not yet</td>
-                  </tr>
-                  <tr>
-                    <td>Maria Anders</td>
-                    <td>mariaanders@mail.com</td>
-                    <td>25, rue Lauriston, Paris, France</td>
-                    <td>(503) 555-9931</td>
-                    <td>Not yet</td>
-                  </tr>
-                  <tr>
-                    <td>Fran Wilson</td>
-                    <td>franwilson@mail.com</td>
-                    <td>C/ Araquil, 67, Madrid, Spain</td>
-                    <td>(204) 619-5731</td>
-                    <td>Not yet</td>
-                  </tr>
-                  <tr>
-                    <td>Martin Blank</td>
-                    <td>martinblank@mail.com</td>
-                    <td>Via Monte Bianco 34, Turin, Italy</td>
-                    <td>(480) 631-2097</td>
-                    <td>Returned</td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
+
           </div>
         </div>
-      </main>
+      </div>
+    </main>
 
-      <div th:replace="footer :: footer"></div>
-      <script type="text/javascript" src="js/main.js"></script>
-    </div>
-  </body>
+    <div th:replace="footer :: footer"></div>
+    <script type="text/javascript" src="js/main.js"></script>
+  </div>
+</body>
+
 </html>

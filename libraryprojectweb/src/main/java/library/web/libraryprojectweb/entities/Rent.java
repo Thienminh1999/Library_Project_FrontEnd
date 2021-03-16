@@ -57,4 +57,7 @@ public class Rent {
     public void setStatusID(String statusID) {
         StatusID = statusID;
     }
+
+    public Rent() {
+    }
 }
