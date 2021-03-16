@@ -57,19 +57,7 @@
           <div class="info-detail"><span th:text="*{publishDate}"></span></div>
         </div>
 
-        <div class="form-group">
-          <label> Category: </label>
-          <div class="info-detail"><span th:text="${MainCateName}"></span></div>
-        </div>
-
-        <div class="form-group">
-          <label class="float-left"> Sub Category: </label>
-          <div class="info-detail-cate">
-            <div class="sub-cate-item" th:each="item : ${listSubCate}">
-              <span th:text="${item.getSubCategoryName()}"></span>
-            </div>
-          </div>
-        </div>
+       
 
         <div class="form-group">
           <label> Quantity: </label>
@@ -91,6 +79,20 @@
           <div class="info-detail">
             <span th:if="*{modifiedDate} != null" th:text="*{modifiedDate}"></span>
             <span th:if="*{modifiedDate} == null">(No Infomation)</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label> Category: </label>
+          <div class="info-detail"><span th:text="${MainCateName}"></span></div>
+        </div>
+
+        <div class="form-group">
+          <label class="float-left"> Sub Category: </label>
+          <div class="info-detail-cate">
+            <div class="sub-cate-item" th:each="item : ${listSubCate}">
+              <span th:text="${item.getSubCategoryName()}"></span>
+            </div>
           </div>
         </div>
       </div>
