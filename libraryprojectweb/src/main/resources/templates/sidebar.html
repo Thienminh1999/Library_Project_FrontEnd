@@ -50,15 +50,15 @@
             </a>
             <ul class="book-show">
               <li>
-                <a href="#"><span class="fas fa-plus-circle"></span>Add Book</a>
+                <a th:href="@{/createBookPage}"><span class="fas fa-plus-circle"></span>Add Book</a>
               </li>
               <li>
-                <a href="#"><span class="fas fa-list-ul"></span>View Book</a>
+                <a th:href="@{/managebook}"><span class="fas fa-list-ul"></span>View Book</a>
               </li>
             </ul>
           </li>
           <li>
-            <a href="#" class="nav__link">
+            <a th:href="@{/rentbook}" class="nav__link">
               <span class="fas fa-book-reader"></span>
               <span>Rentbook</span>
             </a>
@@ -79,7 +79,7 @@
       </div>
 
       <th:block layout:fragment="script">
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
       </th:block>
     </div>
   </body>

@@ -34,13 +34,15 @@ public class UserRentBook implements PropertyChangeListener, Serializable {
     }
 
     public static void addToList(BookInfo bookinfo) {
-        System.out.println("/n addToList");
+        
         if (listBook == null) {
             listBook = new ArrayList<>();
         }
         listBook.add(bookinfo);
-       // return listBook;
+       
     }
+
+    
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {

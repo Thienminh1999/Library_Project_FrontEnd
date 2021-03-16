@@ -18,7 +18,7 @@ btn.addEventListener('click', function() {
 
 $(function () {
     $(".mul-select").select2({
-      placeholder: "select country",
+      placeholder: " select Sub Category",
       tags: true,
       tokenSeparators: ["/", ",", ";", " "],
     });

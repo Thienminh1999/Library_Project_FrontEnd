@@ -43,12 +43,12 @@ public class CommonController {
 
     @GetMapping(value = "/qrcode")
     public void qrcodeexam() {
-        String data = "US-000004";
+        String data = "BO-000005";
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         try {
             BitMatrix matrix = qrCodeWriter.encode(data, BarcodeFormat.QR_CODE, 200, 200);
-            // Write to file image
-            String outputFile = "D://user4.png";
+             String outputFile = "D://" + data + ".png";
+            //String outputFile = ".//src//main//resources//static//img//" + data + ".png";
             Path path = FileSystems.getDefault().getPath(outputFile);
             MatrixToImageWriter.writeToPath(matrix, "PNG", path);
         } catch (WriterException e) {
@@ -66,7 +66,6 @@ public class CommonController {
         this.rentbook = new UserRentBook();
         bean.addPropertyChangeListener(rentbook);
         if (this.threadExists == false) {
-           
             this.r = new MyRunable(bean);
             this.thread = new Thread(this.r);
             this.thread.start();
@@ -95,6 +94,17 @@ public class CommonController {
         this.threadExists = false;
         modelAndView.addObject("mess", true);
         modelAndView.addObject("rentbook", this.rentbook);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/stopscan")
+    public ModelAndView stopScan(){
+        ModelAndView modelAndView = new ModelAndView("rentpage");
+        this.r.stopThread();
+        this.threadExists = false;
+        this.bean = new BeanUserRentBook();
+        this.rentbook = new UserRentBook();
+        modelAndView.addObject("rentbook", rentbook);
         return modelAndView;
     }
 

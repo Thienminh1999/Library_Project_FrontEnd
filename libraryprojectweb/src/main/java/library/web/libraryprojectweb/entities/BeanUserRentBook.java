@@ -45,19 +45,29 @@ public class BeanUserRentBook{
     public void setListBook(List<BookInfo> listBook) {
         changeSupport.firePropertyChange("listBook", this.listBook, listBook);
         this.listBook = listBook;
-        System.out.print("In setListBook :" + this.user.getFullName());
     }
 
     public List<BookInfo> addToList(BookInfo bookinfo) {
         List<BookInfo> oldList = this.listBook;
-        System.out.println("AddToBeanList");
         if (listBook== null) {
             listBook= new ArrayList<>();
         }
+        boolean check = checkBookExist(bookinfo);
+        if(check == false){
+            return this.listBook;
+        }
         listBook.add(bookinfo);
         changeSupport.firePropertyChange("listBook", oldList, this.listBook);
-        //this.setListBook(listBookObj);
         return this.listBook;
+    }
+
+    public boolean checkBookExist(BookInfo bookinfo){
+        for(int i = 0; i<this.listBook.size(); i++){
+            if(bookinfo.getBookID().equals(this.listBook.get(i).getBookID())){
+                return false;
+            }
+        }
+        return true;
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
