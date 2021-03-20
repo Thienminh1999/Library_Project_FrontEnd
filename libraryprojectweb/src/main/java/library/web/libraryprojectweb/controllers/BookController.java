@@ -1,11 +1,9 @@
 package library.web.libraryprojectweb.controllers;
 
-
 import java.util.Base64;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -78,7 +76,7 @@ public class BookController {
             Book book = new Book(bookinfo, listSubCate);
             System.out.println("size: " + listSubCate.size());
             BookFormError error = CommonUtil.checkAddBookError(book);
-            if(error.getCheckError()){
+            if (error.getCheckError()) {
                 model.addObject("bookinfo", bookinfo);
                 model.addObject("errorForm", error);
                 SubCategory[] listSubCat = rest.getForObject(GET_SUBCATEGORY_LIST_URL, SubCategory[].class);
@@ -123,12 +121,12 @@ public class BookController {
         ModelAndView model = new ModelAndView("book");
         RestTemplate rest = new RestTemplate();
         Book[] listBook = rest.getForObject(GET_ALL_BOOK_URL, Book[].class);
-        if(listBook.length == 0){
+        if (listBook.length == 0) {
             model.addObject("listBook", null);
-        }else{
+        } else {
             model.addObject("listBook", listBook);
         }
-        
+
         return model;
     }
 
@@ -179,22 +177,38 @@ public class BookController {
     }
 
     @RequestMapping(value = "/disablebook/{bookid}")
-    public String disableBook(@ModelAttribute("bookid") String txtBookID){
-     
-        RestTemplate rest = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<String> entity = new HttpEntity<String>(txtBookID, headers);
-        BookInfo bookinfo = rest.postForObject(DISABLE_A_BOOK_URL, entity, BookInfo.class);
-        return "forward:/managebook";
+    public String disableBook(@ModelAttribute("bookid") String txtBookID, HttpServletRequest request) {
+
+        String alert = (String) request.getParameter("alert");
+        System.out.println("test:" + alert);
+        if (alert.equals("OK")) {
+            RestTemplate rest = new RestTemplate();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            HttpEntity<String> entity = new HttpEntity<String>(txtBookID, headers);
+            BookInfo bookinfo = rest.postForObject(DISABLE_A_BOOK_URL, entity, BookInfo.class);
+            System.out.println("OK");
+            return "forward:/managebook";
+        } else {
+            System.out.println("Cancel");
+            return "/managebook";
+        }
+
+        // RestTemplate rest = new RestTemplate();
+        // HttpHeaders headers = new HttpHeaders();
+        // headers.setContentType(MediaType.APPLICATION_JSON);
+        // HttpEntity<String> entity = new HttpEntity<String>(txtBookID, headers);
+        // BookInfo bookinfo = rest.postForObject(DISABLE_A_BOOK_URL, entity,
+        // BookInfo.class);
+        // System.out.println("OK");
+        // return "forward:/managebook";
     }
 
-
     @RequestMapping(value = "/searchbook")
-    public ModelAndView searchBook(HttpServletRequest request){
+    public ModelAndView searchBook(HttpServletRequest request) {
         ModelAndView model = new ModelAndView("book");
         String searchValue = request.getParameter("txtSearchValue");
-        if(searchValue.equals("")){
+        if (searchValue.equals("")) {
             model.addObject("listSearchNull", true);
             model.addObject("searchValue", searchValue);
             return model;
@@ -204,15 +218,13 @@ public class BookController {
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<String> entity = new HttpEntity<String>(searchValue, headers);
         Book[] listBook = rest.postForObject(FIND_BOOK_BY_NAME_URL, entity, Book[].class);
-        if(listBook.length > 0){
+        if (listBook.length > 0) {
             model.addObject("listBook", listBook);
-        }else{
+        } else {
             model.addObject("listSearchNull", true);
             model.addObject("searchValue", searchValue);
         }
         return model;
     }
 
-
 }
-

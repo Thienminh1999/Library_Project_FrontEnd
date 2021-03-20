@@ -61,9 +61,14 @@
                       
                     <a href="/addbook" th:href="@{/toEditBook/{bookid}(bookid=${book.getBook().getBookID()})}" class="edit" data-toggle="tooltip"><i class="material-icons"
                         data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        
-                    <a th:href="@{/disablebook/{bookid}(bookid=${book.getBook().getBookID()})}" class="delete" data-toggle="tooltip"><i class="material-icons"
-                        data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    <form action="/disablebook" method="GET">
+                      <!-- <a th:href="@{/disablebook/{bookid}(bookid=${book.getBook().getBookID()})}" class="delete" data-toggle="tooltip" onclick="alertDelete()"><i class="material-icons"
+                        data-toggle="tooltip" title="Delete">&#xE872;</i></a> -->
+                      <input name="alert" id="alert" type="text" value="" hidden="true">
+                      <input type="hidden" name="txtBookID" th:value="${book.getBook().getBookID()}">
+                      <button><i class="material-icons"
+                        data-toggle="tooltip" title="Delete">&#xE872;</i></button>
+                    </form>    
                   </td>
                 </tr>
               </tbody>

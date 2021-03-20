@@ -1,52 +1,62 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns="http://www.w3.org/1999/xhtml">
-<head>
-		<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Login Page</title>
+    <title>Login Page</title>
 
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-
-</head>
-<body>
-<div class="container">
-            <div class="img">
-                <img src="img/book.svg">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="img">
+        <img src="img/book.svg" />
+      </div>
+      <div class="login-container">
+        <form action="/home" method="POST">
+          <img class="avatar" src="img/avatar.svg" />
+          <h2>Welcome</h2>
+          <div class="input-div one forcus">
+            <div class="i">
+              <i class="fas fa-user"></i>
             </div>
-            <div class="login-container">
-                <form action="/home" method="POST">
-                    <img class="avatar" src="img/avatar.svg">
-                    <h2>Welcome</h2>
-                    <div class="input-div one forcus">
-                        <div class="i">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div>
-                            <h5>Username</h5>
-                            <input name="username" class="input" type="text">
-                        </div>
-                    </div>
-                    <div class="input-div two forcus">
-                        <div class="i">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div>
-                            <h5>Password</h5>
-                            <input name="password" class="input" type="password">
-                        </div>
-                    </div>
-                    <input type="submit" class="btn" value="Login">
-                </form>
+            <div>
+              <h5>Username</h5>
+              <input name="username" class="input" type="text" />
             </div>
-        </div>
-
-</body>
+          </div>
+          <div class="input-div two forcus">
+            <div class="i">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div>
+              <h5>Password</h5>
+              <input name="password" class="input" type="password" />
+            </div>
+          </div>
+          <input type="submit" class="btn" value="Login" />
+          <font color="red"><span th:text="${message}"></span></font>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

@@ -83,7 +83,7 @@
 
                     <div class="add-group">
                         <label> Quantity: </label>
-                        <input type="number" class="add-info-book" th:field="*{quantity}" />
+                        <input type="number" class="add-info-book" th:field="*{quantity}" min="0" onkeyup="if(this.value<0){this.value= this.value * -1}"/>
                         <div class="error-form" th:if="${errorForm != null}">
                             <span th:text="${errorForm.getQuantityError()}"></span>
                         </div>

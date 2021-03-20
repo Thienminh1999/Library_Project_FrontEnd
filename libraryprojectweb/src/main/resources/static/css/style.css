@@ -189,12 +189,12 @@ form h2 {
   display: block;
 }
 
-.sidebar-menu a.active {
+/* .sidebar-menu a.active {
   background: #fff;
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-radius: 30px 0px 0px 30px;
-}
+} */
 
 .sidebar-menu a:first-child {
   font-size: 1.5rem;
@@ -573,27 +573,27 @@ table.table .avatar {
   margin-right: 10px;
 }
 
-.title-bar{
+.title-bar {
   width: 100%;
   height: 50px;
   float: left;
   text-align: center;
 }
 
-.user-card, .book-card{
+.user-card,
+.book-card {
   width: 50%;
   min-height: 400px;
   float: left;
   max-height: 600px;
   overflow: hidden;
-  
 }
 
-.my-border-left{
+.my-border-left {
   border-left: double;
 }
 
-.item-card{
+.item-card {
   width: 96%;
   min-height: 170px;
   float: left;
@@ -601,23 +601,25 @@ table.table .avatar {
   border: 3px solid;
   border-radius: 10px;
   margin-left: 10px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
-.item-user, .item-book{
+.item-user,
+.item-book {
   width: 100%;
   height: 35px;
   float: left;
 }
 
-.item-title, .item-name{
+.item-title,
+.item-name {
   width: 48%;
   height: 50px;
   float: left;
   margin-left: 20px;
 }
 
-.rent-page-tool{
+.rent-page-tool {
   width: 100%;
   height: 50px;
   float: left;
@@ -628,50 +630,50 @@ table.table .avatar {
   padding-left: 300px;
 }
 
-.my-btn-tool{
+.my-btn-tool {
   width: 11%;
   height: 40px;
   float: left;
   margin-left: 10px;
   bottom: 0px;
 }
-.btn-tool{
+.btn-tool {
   height: 40px;
   margin-top: 5px;
 }
 
-.scroll-div{
+.scroll-div {
   overflow-y: scroll;
 }
 
-.mess-progress{
+.mess-progress {
   height: 50px;
-    z-index: 100;
-    width: 220px;
-    position: fixed;
-    top: 85px;
-    right: 0px;
-    text-align: center;
-    background-color: #e8c4b7;
-    padding-top: 12px;
+  z-index: 100;
+  width: 220px;
+  position: fixed;
+  top: 85px;
+  right: 0px;
+  text-align: center;
+  background-color: #e8c4b7;
+  padding-top: 12px;
 }
 
-.width-100{
+.width-100 {
   width: 100%;
 }
 
-.closebtn{
+.closebtn {
   margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 2s;
-    color: black;
-    margin-top: 2px;
-    margin-right: 6px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 2s;
+  color: black;
+  margin-top: 2px;
+  margin-right: 6px;
 }
 
 /*-------------------------------*/
@@ -691,7 +693,6 @@ table.table .avatar {
 }
 
 .info-detail-cate {
-  
   display: grid;
   grid-template-columns: auto auto auto;
   width: fit-content;
@@ -728,7 +729,7 @@ textarea {
   transition: 0.3s;
 }
 
-.add-info-book:focus ,
+.add-info-book:focus,
 .add-group input:focus {
   border-color: dodgerBlue;
   box-shadow: 0 0 8px 0 dodgerBlue;
@@ -749,7 +750,8 @@ textarea {
   margin-left: 30rem;
 }
 
-.add-book-btn a, .add-book-btn button ,
+.add-book-btn a,
+.add-book-btn button,
 .add-book-btn a {
   position: relative;
   display: inline-block;
@@ -762,10 +764,7 @@ textarea {
 
 /*-------------------------------*/
 
-
-
-
-.qr-card{
+.qr-card {
   width: 10%;
   float: right;
   height: 336px;
@@ -773,54 +772,91 @@ textarea {
   top: 259px;
   right: 120px;
 }
-.btn-print-qr{
+.btn-print-qr {
   margin: 50px 46px;
 }
 
-.border-right{
+.border-right {
   border-right: 1px solid #555;
 }
 
-.book-img{
+.book-img {
   height: 400px;
   width: 40%;
   float: left;
   padding-left: 60px;
 }
 
-.sub-cate-item{
+.sub-cate-item {
   height: 25px;
   width: 80px;
   float: left;
 }
-.float-left{
+.float-left {
   float: left;
 }
-.tool-book-detail{
+.tool-book-detail {
   height: 50px;
   width: 15%;
   position: absolute;
   top: 110px;
   right: 0px;
 }
-.button-tool{
+.button-tool {
   height: 50px;
   width: 20%;
   float: right;
 }
-.btn-tool{
+.btn-tool {
   border-radius: 10px;
   padding: 5px 10px;
   background: #e8c4b7;
 }
-.error-form{
+.error-form {
   color: red;
   text-align: left;
   padding-left: 250px;
 }
-.width-300{
+.width-300 {
   width: 300px;
 }
-.padding-no-record{
+.padding-no-record {
   padding: 30px 350px;
+}
+/*-------------------------------*/
+
+.error-img {
+  width: auto;
+  margin: 3rem 30rem;
+}
+
+.error-img img {
+  width: 600px;
+}
+
+.error-text {
+  margin: 20px 0;
+  font-size: 2rem;
+  padding-left: 5rem;
+}
+
+.back-btn {
+  position: relative;
+  display: inline-block;
+  padding: 12px 36px;
+  margin: 10px 120px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 2px;
+  border-radius: 40px;
+  background: linear-gradient(90deg, #e8c4b7, #f5e1da);
+}
+
+.back-btn a {
+  text-decoration: none;
+}
+
+.back-btn span {
+  color: black;
 }
