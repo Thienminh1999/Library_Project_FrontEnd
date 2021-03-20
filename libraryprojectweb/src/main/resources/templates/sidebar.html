@@ -44,16 +44,20 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav__link book-btn">
+            <a class="nav__link book-btn">
               <span class="fas fa-book"></span>
               <span>Book <i class="fas fa-caret-down first"></i></span>
             </a>
             <ul class="book-show">
               <li>
-                <a th:href="@{/createBookPage}"><span class="fas fa-plus-circle"></span>Add Book</a>
+                <a th:href="@{/createBookPage}"
+                  ><span class="fas fa-plus-circle"></span>Add Book</a
+                >
               </li>
               <li>
-                <a th:href="@{/managebook}"><span class="fas fa-list-ul"></span>View Book</a>
+                <a th:href="@{/managebook}"
+                  ><span class="fas fa-list-ul"></span>View Book</a
+                >
               </li>
             </ul>
           </li>
@@ -83,8 +87,8 @@
           </li>
           <li>
             <form th:action="@{/logout}" method="post">
-				<input id="logout" type="submit" value="Logout"/>
-			</form>
+              <input id="logout" type="submit" value="Logout" />
+            </form>
           </li>
         </ul>
       </div>
