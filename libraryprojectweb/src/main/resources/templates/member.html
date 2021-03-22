@@ -58,7 +58,7 @@
 									<td><span th:text="${user.email}"></span></td>
 									<td><span th:text="${user.address}"></span></td>
 									<td><span th:text="${user.phoneNumber}"></span></td>
-									<td><a href="#" class="view" title="View"
+									<td><a th:href="@{/userrentdetail/{txtEmail}(txtEmail=${user.email})}" class="view" title="View"
 										data-toggle="tooltip"><i
 											class="material-icons">&#xE417;</i></a>
 									

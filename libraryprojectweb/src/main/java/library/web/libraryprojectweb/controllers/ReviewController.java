@@ -1,5 +1,7 @@
 package library.web.libraryprojectweb.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -18,34 +20,33 @@ public class ReviewController {
 	final String REVIEW = "http://localhost:8080/api/review";
 	final String DELETE_REVIEW = "http://localhost:8080/api/deletereview";
 
-	
 	@RequestMapping(value = "/reviews")
 	public String getReviews(Model model) {
 		RestTemplate restTemplate = new RestTemplate();
-		Review listReview[] = restTemplate.getForObject(LIST_REVIEW, Review[].class);		
-		if(listReview.length > 0) {
-			model.addAttribute("listReview",listReview);
+		Review listReview[] = restTemplate.getForObject(LIST_REVIEW, Review[].class);
+		if (listReview.length > 0) {
+			model.addAttribute("listReview", listReview);
 			return "review";
-			
-		}
-		else {
+
+		} else {
 			return "review";
 		}
-		//System.out.println("\n demo: " + listReview[0].getContent());		
-		
+		// System.out.println("\n demo: " + listReview[0].getContent());
+
 	}
-	
-	@RequestMapping(value = "/reviews/{reviewID}")
-	public String deleteReview(@ModelAttribute("reviewID") String txtReviewID) {
-		RestTemplate restTemplate = new RestTemplate();
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		System.out.println("test: " + txtReviewID);
-		HttpEntity<String> entity = new HttpEntity<String>(txtReviewID, headers);
-		restTemplate.postForObject(DELETE_REVIEW, entity, Review.class);
-		
+
+	@RequestMapping(value = "/removereview")
+	public String deleteReview(HttpServletRequest request) {
+		String alert = (String) request.getParameter("alert");
+		if (alert.equals("OK")) {
+			String txtReviewID = request.getParameter("txtReviewID");
+			RestTemplate restTemplate = new RestTemplate();
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			HttpEntity<String> entity = new HttpEntity<String>(txtReviewID, headers);
+			restTemplate.postForObject(DELETE_REVIEW, entity, Review.class);
+		}
 		return "forward:/reviews";
-		
 	}
 
 }

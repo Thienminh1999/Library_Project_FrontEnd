@@ -27,6 +27,7 @@
             document.getElementById('listSubCateHidden').value = values;
         }
 
+        $('.datepicker').datepicker();
         
 
     </script>
@@ -75,8 +76,8 @@
 
                     <div class="add-group" th:if="${update} != true">
                         <label> PublishDate: </label>
-                        <input type="text" class="add-info-book" th:field="*{publishDate}" />
-                        <div class="error-form" th:if="${errorForm != null}">
+                        <input type="date" class="add-info-book" th:field="*{publishDate}" />
+                        <div class="error-form" th:if="${errorForm != null}" >
                             <span th:text="${errorForm.getPublishDateError()}"></span>
                         </div>
                     </div>
@@ -115,6 +116,18 @@
                             <span th:text="${errorForm.getMainCategoryError()}"></span>
                         </div>
                     </div>
+
+                    <div class="add-group" th:if="${update} != true">
+                        <label> Author: </label>
+                        <select class="mul-select" th:field="*{authorID}">
+                            <option th:each="item : ${listAuthor}" th:value="${item.getAuthorID}"
+                                th:text="${item.getAuthorName}"></option>
+                        </select>
+                        <div class="error-form" th:if="${errorForm != null}">
+                            <span th:text="${errorForm.getMainCategoryError()}"></span>
+                        </div>
+                    </div>
+
 
                     <div class="add-group" th:if="${update} != true">
                         <label> SubCatagory: </label>

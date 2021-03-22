@@ -85,10 +85,11 @@
               <span>Rent History</span>
             </a>
           </li>
-          <li>
-            <form th:action="@{/logout}" method="post">
-              <input id="logout" type="submit" value="Logout" />
-            </form>
+          <li class="logout-btn">
+            <a th:href="@{/logout}" class="nav__link">
+              <span class="fas fa-sign-out-alt "></span>
+              <span>Logout</span>
+            </a>
           </li>
         </ul>
       </div>

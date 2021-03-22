@@ -50,26 +50,29 @@
               </thead>
               <tbody>
                 <tr th:each="book : ${listBook}">
+                  <form th:action="@{/disablebook}" method="POST">
                   <td class="width-300"><span th:text="${book.getBook().getBookName()}"></span></td>
                   <td><span th:text="${book.getBook().getPublisher()}"></span></td>
                   <td><span th:text="${book.getBook().getPublishDate()}"></span></td>
                   <td><span th:text="${book.getBook().getBookPosition()}"></span></td>
                   <td>
+                      
                     <input type="hidden" name="txtBookID" th:value="${book.getBook().getBookID()}">
                     <a href="/bookdetail" th:href="@{/bookdetail/{bookid}(bookid=${book.getBook().getBookID()})}" class="view" title="View" data-toggle="tooltip"><i
                         class="material-icons">&#xE417;</i></a>
                       
                     <a href="/addbook" th:href="@{/toEditBook/{bookid}(bookid=${book.getBook().getBookID()})}" class="edit" data-toggle="tooltip"><i class="material-icons"
                         data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                    <form action="/disablebook" method="GET">
+                  
                       <!-- <a th:href="@{/disablebook/{bookid}(bookid=${book.getBook().getBookID()})}" class="delete" data-toggle="tooltip" onclick="alertDelete()"><i class="material-icons"
                         data-toggle="tooltip" title="Delete">&#xE872;</i></a> -->
                       <input name="alert" id="alert" type="text" value="" hidden="true">
                       <input type="hidden" name="txtBookID" th:value="${book.getBook().getBookID()}">
-                      <button><i class="material-icons"
+                      <button class="border-none"><i class="material-icons" onclick="alertDelete()"
                         data-toggle="tooltip" title="Delete">&#xE872;</i></button>
-                    </form>    
+                      
                   </td>
+                  </form>  
                 </tr>
               </tbody>
             </table>

@@ -17,10 +17,11 @@ public class BookInfo {
     private String BookImg;
     private String categoryID;
     private Boolean enable;
+    private String authorID;
 
     public BookInfo(String bookID, String bookName, String publisher, String publishDate, String quantity,
             String description, String bookPosition, Date createdDate, Date modifiedDate, String createdBy,
-            String modifiedBy, String bookImg, String categoryID, Boolean enable) {
+            String modifiedBy, String bookImg, String categoryID, Boolean enable, String authorID) {
         this.bookID = bookID;
         this.bookName = bookName;
         this.publisher = publisher;
@@ -35,6 +36,7 @@ public class BookInfo {
         this.BookImg = bookImg;
         this.categoryID = categoryID;
         this.enable = enable;
+        this.authorID = authorID;
     }
 
     public BookInfo(String bookID, String bookName, String publisher, String publishDate, String quantity,
@@ -150,6 +152,7 @@ public class BookInfo {
         this.createdDate = CreatedDate;
         this.createdBy = "admin";
         this.enable = true;
+        this.BookImg = "/img/book/no-img.png";
     }
 
     public String getBookImg() {
@@ -174,6 +177,14 @@ public class BookInfo {
 
     public void setEnable(Boolean enable) {
         this.enable = enable;
+    }
+
+    public String getAuthorID() {
+        return authorID;
+    }
+
+    public void setAuthorID(String authorID) {
+        this.authorID = authorID;
     }
 
     

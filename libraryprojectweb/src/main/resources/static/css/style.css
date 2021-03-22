@@ -729,8 +729,7 @@ textarea {
   transition: 0.3s;
 }
 
-.add-info-book:focus,
-.add-group input:focus {
+.add-info-book:focus {
   border-color: dodgerBlue;
   box-shadow: 0 0 8px 0 dodgerBlue;
 }
@@ -811,6 +810,7 @@ textarea {
   border-radius: 10px;
   padding: 5px 10px;
   background: #e8c4b7;
+  padding-top: 6px;
 }
 .error-form {
   color: red;
@@ -823,7 +823,6 @@ textarea {
 .padding-no-record {
   padding: 30px 350px;
 }
-<<<<<<< HEAD
 
 .rent-card{
   width: 100%;
@@ -870,7 +869,6 @@ textarea {
   margin-top: 20px;
 }
 
-=======
 /*-------------------------------*/
 
 .error-img {
@@ -908,4 +906,19 @@ textarea {
 .back-btn span {
   color: black;
 }
->>>>>>> 604e380fac54629f800d341dce0fa706c1a3f095
+
+.logout-btn{
+  position: absolute;
+  bottom: -15px;
+  border-top: 3px solid;
+  padding-top: 17px;
+}
+.border-none{
+  border: none;
+}
+.text-align-center{
+  text-align: center;
+}
+.padding-top-5{
+  padding-top: 5px;
+}

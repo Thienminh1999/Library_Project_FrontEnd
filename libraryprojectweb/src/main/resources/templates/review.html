@@ -62,6 +62,7 @@
                 </thead>
                 <tbody th:each="review : ${listReview}">
                   <tr>
+                    <form th:action="@{/removereview}">
                     <td><span th:text="${review.reviewID}"></span></td>
                     <td><span th:text="${review.fullNameUser}"></span></td>
                     <td><span th:text="${review.content}"></span></td>
@@ -69,8 +70,11 @@
                     <td><span th:text="${review.bookName}"></span></td>
                     <td>
                     	<input type="hidden" name="txtReviewID" th:value="${review.reviewID}">
-                    	<a th:href="@{/reviews/{reviewID}(reviewID=${review.reviewID})}">Delete</a>
+                      <input name="alert" id="alert" type="text" value="" hidden="true">
+                      <button><i class="material-icons" onclick="alertDelete()"
+                        data-toggle="tooltip" title="Delete">&#xE872;</i></button>
                     </td>
+                  </form>
                   </tr>  
               
                 </tbody>

@@ -29,47 +29,33 @@
   <body>
     <div class="container">
       <div class="img">
-        <img src="img/book.svg" />
+          <img src="img/book.svg">
       </div>
       <div class="login-container">
-        <form action="/home" method="POST">
-          <img class="avatar" src="img/avatar.svg" />
-          <h2>Welcome</h2>
-          <div class="input-div one forcus">
-            <div class="i">
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="login-container">
-                <form action="/home" method="POST">
-                    <img class="avatar" src="img/avatar.svg">
-                    <h2>Welcome</h2>
-                    <div class="input-div one forcus">
-                        <div class="i">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div>
-                            <h5>Username</h5>
-                            <input name="username" class="input" type="text" value="administrator">
-                        </div>
-                    </div>
-                    <div class="input-div two forcus">
-                        <div class="i">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div>
-                            <h5>Password</h5>
-                            <input name="password" class="input" type="password" value="admin123">
-                        </div>
-                    </div>
-                    <input type="submit" class="btn" value="Login">
-                    <font color="red"><span th:text="${message}"></span></font>
-                </form>
-            </div>
-          </div>
-         
-          
-        </form>
+          <form action="/home" method="POST">
+              <img class="avatar" src="img/avatar.svg">
+              <h2>Welcome</h2>
+              <div class="input-div one forcus">
+                  <div class="i">
+                      <i class="fas fa-user"></i>
+                  </div>
+                  <div>
+                      <h5>Username</h5>
+                      <input name="username" class="input" type="text">
+                  </div>
+              </div>
+              <div class="input-div two forcus">
+                  <div class="i">
+                      <i class="fas fa-lock"></i>
+                  </div>
+                  <div>
+                      <h5>Password</h5>
+                      <input name="password" class="input" type="password">
+                  </div>
+              </div>
+              <input type="submit" class="btn" value="Login">
+          </form>
       </div>
-    </div>
+  </div>
   </body>
 </html>

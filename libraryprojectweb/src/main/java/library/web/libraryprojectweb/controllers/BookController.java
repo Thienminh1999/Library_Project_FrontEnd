@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import library.web.libraryprojectweb.Utils.CommonUtil;
+import library.web.libraryprojectweb.entities.Author;
 import library.web.libraryprojectweb.entities.Book;
 import library.web.libraryprojectweb.entities.BookFormError;
 import library.web.libraryprojectweb.entities.BookInfo;
@@ -38,6 +39,7 @@ public class BookController {
     private final String UPDATE_A_BOOK_URL = "http://localhost:8080/api/book";
     private final String DISABLE_A_BOOK_URL = "http://localhost:8080/api/disablebook";
     private final String FIND_BOOK_BY_NAME_URL = "http://localhost:8080/api/findbook";
+    private final String GET_ALL_AUTHOR_URL = "http://localhost:8080/api/authors";
 
     @RequestMapping(value = "/createBookPage")
     public ModelAndView toCreateBook() {
@@ -45,8 +47,11 @@ public class BookController {
         RestTemplate rest = new RestTemplate();
         SubCategory[] listSubCate = rest.getForObject(GET_SUBCATEGORY_LIST_URL, SubCategory[].class);
         Category[] listCate = rest.getForObject(GET_MAIN_CATEGORY_LIST_URL, Category[].class);
+        Author[] listAuthor = rest.getForObject(GET_ALL_AUTHOR_URL, Author[].class);
+         model.addObject("listAuthor", listAuthor);
         model.addObject("SubCateList", listSubCate);
         model.addObject("MainCateList", listCate);
+       
         model.addObject("bookinfo", new BookInfo());
         return model;
     }
@@ -81,6 +86,8 @@ public class BookController {
                 model.addObject("errorForm", error);
                 SubCategory[] listSubCat = rest.getForObject(GET_SUBCATEGORY_LIST_URL, SubCategory[].class);
                 Category[] listCate = rest.getForObject(GET_MAIN_CATEGORY_LIST_URL, Category[].class);
+                Author[] listAuthor = rest.getForObject(GET_ALL_AUTHOR_URL, Author[].class);
+                model.addObject("listAuthor", listAuthor);
                 model.addObject("SubCateList", listSubCat);
                 model.addObject("MainCateList", listCate);
                 return model;
@@ -151,6 +158,8 @@ public class BookController {
 
         SubCategory[] listSubCate = rest.getForObject(GET_SUBCATEGORY_LIST_URL, SubCategory[].class);
         Category[] listCate = rest.getForObject(GET_MAIN_CATEGORY_LIST_URL, Category[].class);
+        Author[] listAuthor = rest.getForObject(GET_ALL_AUTHOR_URL, Author[].class);
+        model.addObject("listAuthor", listAuthor);
         model.addObject("SubCateList", listSubCate);
         model.addObject("MainCateList", listCate);
         model.addObject("bookinfo", book.getBook());
@@ -169,6 +178,8 @@ public class BookController {
 
         SubCategory[] listSubCate = rest.getForObject(GET_SUBCATEGORY_LIST_URL, SubCategory[].class);
         Category[] listCate = rest.getForObject(GET_MAIN_CATEGORY_LIST_URL, Category[].class);
+        Author[] listAuthor = rest.getForObject(GET_ALL_AUTHOR_URL, Author[].class);
+        model.addObject("listAuthor", listAuthor);
         model.addObject("SubCateList", listSubCate);
         model.addObject("MainCateList", listCate);
         model.addObject("bookinfo", book.getBook());
@@ -176,32 +187,20 @@ public class BookController {
         return model;
     }
 
-    @RequestMapping(value = "/disablebook/{bookid}")
-    public String disableBook(@ModelAttribute("bookid") String txtBookID, HttpServletRequest request) {
-
+    @RequestMapping(value = "/disablebook", method = RequestMethod.POST)
+    public String disableBook(HttpServletRequest request) {
         String alert = (String) request.getParameter("alert");
-        System.out.println("test:" + alert);
         if (alert.equals("OK")) {
+            String txtBookID = request.getParameter("txtBookID");
             RestTemplate rest = new RestTemplate();
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
             HttpEntity<String> entity = new HttpEntity<String>(txtBookID, headers);
             BookInfo bookinfo = rest.postForObject(DISABLE_A_BOOK_URL, entity, BookInfo.class);
-            System.out.println("OK");
             return "forward:/managebook";
         } else {
-            System.out.println("Cancel");
-            return "/managebook";
+            return  "forward:/managebook";
         }
-
-        // RestTemplate rest = new RestTemplate();
-        // HttpHeaders headers = new HttpHeaders();
-        // headers.setContentType(MediaType.APPLICATION_JSON);
-        // HttpEntity<String> entity = new HttpEntity<String>(txtBookID, headers);
-        // BookInfo bookinfo = rest.postForObject(DISABLE_A_BOOK_URL, entity,
-        // BookInfo.class);
-        // System.out.println("OK");
-        // return "forward:/managebook";
     }
 
     @RequestMapping(value = "/searchbook")
